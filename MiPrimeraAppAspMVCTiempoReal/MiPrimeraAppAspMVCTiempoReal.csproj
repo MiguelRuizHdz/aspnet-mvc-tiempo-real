@@ -104,6 +104,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\categoriacurso.js" />
     <Content Include="js\chart.js" />
+    <Content Include="js\curso.js" />
     <Content Include="js\datatable.js" />
     <Content Include="js\generic.js" />
     <Content Include="js\sweetAlert.js" />
@@ -117,12 +118,19 @@
       <DependentUpon>BDCurso.edmx</DependentUpon>
       <LastGenOutput>BDCurso.cs</LastGenOutput>
     </Content>
+    <None Include="Scripts\jquery-3.6.4.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.4.js" />
+    <Content Include="Scripts\jquery-3.6.4.min.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Clases\CategoriaCursoCLS.cs" />
+    <Compile Include="Clases\CursoCLS.cs" />
     <Compile Include="Controllers\CategoriaCursoController.cs" />
+    <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,6 +176,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CategoriaCurso\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.4.min.map" />
+    <Content Include="Views\Curso\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

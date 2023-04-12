@@ -21,7 +21,7 @@
                         @Html.ActionLink("Categoria Curso", "Index", "CategoriaCurso", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        @Html.ActionLink("Cursos", "Index", "Curso", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pricing</a>
@@ -42,6 +42,7 @@
         </footer>
     </div>
 
+    <script src="~/Scripts/jquery-3.6.4.min.js"></script>
     <script src="~/js/bootstrap.js"></script>
     <script src="~/js/chart.js"></script>
     <script src="~/js/datatable.js"></script>
