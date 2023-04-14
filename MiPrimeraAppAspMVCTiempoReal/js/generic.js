@@ -48,9 +48,9 @@ function Exito(titulo = "Se guardó correctamente") {
     })
 }
 
-function Confirmacion(titulo = "Desea guardar los cambios?", texto = "Los cambios se guardaran en tu BD", callback) {
+function Confirmacion(texto = "Los cambios se guardaran en tu BD", callback) {
     Swal.fire({
-        title: titulo,
+        title: "Desea guardar los cambios?",
         text: texto,
         icon: 'warning',
         showCancelButton: true,

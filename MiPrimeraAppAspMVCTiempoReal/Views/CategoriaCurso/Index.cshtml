@@ -3,13 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Categoria Curso</h2>
+<h2>Categoria Curso <span id="spnEstado"></span></h2>
 
 <fieldset class="mb-3">
     <legend>Información de Categoria Curso</legend>
     <div class="mb-3">
         <label for="txtIdCurso" class="form-label">Ingrese Id Categoria Curso</label>
-        <input readonly disabled class="form-control" type="text" id="txtIdCurso">
+        <input readonly disabled class="form-control" type="text" id="txtIdCategoriaCurso">
     </div>
     <div class="mb-3">
         <label for="txtNombreCategoria" class="form-label">Ingrese Nombre Categoria Curso</label>
@@ -17,7 +17,7 @@
             placeholder="Ingrese Nombre Categoria Curso">
     </div>
     <div class="mb-3">
-        <button class="btn btn-success">Guardar</button>
+        <button class="btn btn-success" onclick="GuardarDatos()">Guardar</button>
         <button class="btn btn-danger">Limpiar</button>
         @*<button class="btn btn-danger" onclick="MyError()">Error</button>
         <button class="btn btn-danger" onclick="Exito()">Exito</button>

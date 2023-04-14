@@ -27,8 +27,10 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
                     CategoriaCurso categoriaCurso = new CategoriaCurso();
                     categoriaCurso.NOMBRE = obj.Nombre;
                     bd.CategoriaCurso.Add(categoriaCurso);
+                    bd.SaveChanges();
                     respuesta = 1;
                 }
+            }
             catch (Exception ex)
             {
                 respuesta = 0;
