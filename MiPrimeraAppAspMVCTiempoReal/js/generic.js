@@ -8,20 +8,58 @@ function getS(id) {
 }
 
 function fecthPost(url, objeto, callback) {
-    fetch(url, {
-        headers: {
-            "Content-Type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify(objeto)
+    Confirmacion(undefined, function () {
+        fetch(url, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify(objeto)
+        })
+        .then(res => res.text())
+        .then(res => {
+            //1(Ok)
+            if (res == 1) {
+                Exito();
+                callback();
+            } else {
+                MyError();
+            }
+        });
+    });
+
+}
+
+function MyError(titulo ="Error", texto = "Ocurrió un error") {
+    Swal.fire({
+        icon: 'error',
+        title: titulo,
+        text: texto
     })
-    .then(res => res.text())
-    .then(res => {
-        //1(Ok)
-        if (res == 1) {
+}
 
-        } else {
+function Exito(titulo = "Se guardó correctamente") {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: titulo,
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
 
+function Confirmacion(titulo = "Desea guardar los cambios?", texto = "Los cambios se guardaran en tu BD", callback) {
+    Swal.fire({
+        title: titulo,
+        text: texto,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            callback();
         }
     })
 }
