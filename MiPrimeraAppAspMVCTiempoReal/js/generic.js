@@ -7,6 +7,25 @@ function getS(id) {
     return document.getElementById(id).src;
 }
 
+function fecthPost(url, objeto, callback) {
+    fetch(url, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(objeto)
+    })
+    .then(res => res.text())
+    .then(res => {
+        //1(Ok)
+        if (res == 1) {
+
+        } else {
+
+        }
+    })
+}
+
 function set(id, valor) {
     document.getElementById(id).value = valor;
 }
