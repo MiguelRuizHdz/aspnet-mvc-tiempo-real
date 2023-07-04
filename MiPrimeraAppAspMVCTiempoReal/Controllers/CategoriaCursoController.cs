@@ -16,6 +16,28 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             return View();
         }
 
+        public int eliminarCategoriaCurso(int idCategoriaCurso)
+        {
+            int respuesta = 0;
+            try
+            {
+                using (BDCursoEntities bd = new BDCursoEntities())
+                {
+                    CategoriaCurso categoriaCurso = bd.CategoriaCurso.Where(t => t.IIDCATEGORIACURSO == idCategoriaCurso).First();
+
+                    categoriaCurso.HABILITADO = 0;
+                    bd.SaveChanges();
+                    respuesta = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = 0;
+            }
+
+            return respuesta;
+        }
+
         public int GuardarDatos(CategoriaCursoCLS obj)
         {
             int respuesta = 0;

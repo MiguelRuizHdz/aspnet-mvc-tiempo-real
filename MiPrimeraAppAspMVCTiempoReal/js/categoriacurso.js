@@ -11,9 +11,16 @@ socket.onclose = function () {
 
 socket.onmessage = function (e) {
     var data = e.data;
-    if (data == "guardoCategoriaCurso") {
+    if (data == "guardoCategoriaCurso" || data == "eliminarCategoriaCurso") {
         listar();
     }
+}
+
+function Eliminar(id) {
+    fetchGetText("CategoriaCurso/eliminarCategoriaCurso?idCategoriaCurso=" + id, function () {
+        //listar();
+        socket.send("eliminarCategoriaCurso");
+    }, undefined);
 }
 
 window.onload = function () {
@@ -35,12 +42,7 @@ function GuardarDatos() {
     }
 
     fecthPost("CategoriaCurso/GuardarDatos", objeto, function () {
-        //listar();
         socket.send("guardoCategoriaCurso");
     })
 
-}
-
-function Eliminar(id) {
-    
 }

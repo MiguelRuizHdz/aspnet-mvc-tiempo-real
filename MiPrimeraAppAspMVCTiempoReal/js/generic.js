@@ -15,11 +15,17 @@ function fetchGet(url, callback) {
     })
 }
 
-function fetchGetText(url, callback) {
+function fetchGetText(url, callback, mensaje="Se eliminó correctamente el registro") {
     //Text
     fetch(url).then(res => res.text())
-    .then(res => {
-        callback(res)
+        .then(res => {
+            if (res == 1) {
+                Exito(mensaje)
+                callback(res)
+            }
+            else {
+                Error()
+            }
     })
 }
 
