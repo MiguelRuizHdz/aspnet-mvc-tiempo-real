@@ -26,6 +26,7 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
                 {
                     CategoriaCurso categoriaCurso = new CategoriaCurso();
                     categoriaCurso.NOMBRE = obj.Nombre;
+                    categoriaCurso.HABILITADO = 1;
                     bd.CategoriaCurso.Add(categoriaCurso);
                     bd.SaveChanges();
                     respuesta = 1;
@@ -44,7 +45,7 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             List<CategoriaCursoCLS> lista = new List<CategoriaCursoCLS>();
             using(BDCursoEntities bd = new BDCursoEntities())
             {
-                lista = bd.CategoriaCurso.Select(c => new CategoriaCursoCLS
+                lista = bd.CategoriaCurso.Where(p=> p.HABILITADO == 1).Select(c => new CategoriaCursoCLS
                 {
                     IdCategoriaCurso = c.IIDCATEGORIACURSO,
                     Nombre = c.NOMBRE

@@ -1,4 +1,5 @@
-﻿var socket = new WebSocket("ws://10.0.0.10:9001");
+﻿var socket = new WebSocket("ws://161.218.118.51:9001");
+// var socket = new WebSocket("ws://10.0.0.10:9001");
 
 socket.onopen = function () {
     document.getElementById("spnEstado").innerHTML = "- OK";
@@ -22,7 +23,7 @@ window.onload = function () {
 
 function listar() {
     pintar("CategoriaCurso/listarCategoriaCurso", undefined, ["Id Categoria Curso", "Nombre"],
-        ["IdCategoriaCurso", "Nombre"]);
+        ["IdCategoriaCurso", "Nombre"], "tabla", true, true, "IdCategoriaCurso");
 }
 function GuardarDatos() {
     var idCategoriaCurso = get("txtIdCategoriaCurso") == "" ? "0" : get("txtIdCategoriaCurso");
@@ -38,4 +39,8 @@ function GuardarDatos() {
         socket.send("guardoCategoriaCurso");
     })
 
+}
+
+function Eliminar(id) {
+    
 }
