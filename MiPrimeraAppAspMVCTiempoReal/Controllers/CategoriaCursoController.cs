@@ -38,6 +38,21 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             return respuesta;
         }
 
+        public JsonResult obtenerCategoriaCursoPorId(int idCategoriaCurso)
+        {
+            using (BDCursoEntities bd = new BDCursoEntities())
+            {
+                CategoriaCursoCLS categoriaCurso = bd.CategoriaCurso.Where(t => t.IIDCATEGORIACURSO == idCategoriaCurso)
+                                                    .Select(t => new CategoriaCursoCLS 
+                                                    {
+                                                        IdCategoriaCurso = t.IIDCATEGORIACURSO,
+                                                        Nombre = t.NOMBRE
+                                                    }).First();
+
+                return Json(categoriaCurso, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public int GuardarDatos(CategoriaCursoCLS obj)
         {
             int respuesta = 0;
@@ -46,12 +61,21 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             {
                 using (BDCursoEntities bd = new BDCursoEntities())
                 {
-                    CategoriaCurso categoriaCurso = new CategoriaCurso();
-                    categoriaCurso.NOMBRE = obj.Nombre;
-                    categoriaCurso.HABILITADO = 1;
-                    bd.CategoriaCurso.Add(categoriaCurso);
-                    bd.SaveChanges();
-                    respuesta = 1;
+                    if (obj.IdCategoriaCurso == 0)
+                    {
+                        CategoriaCurso categoriaCurso = new CategoriaCurso();
+                        categoriaCurso.NOMBRE = obj.Nombre;
+                        categoriaCurso.HABILITADO = 1;
+                        bd.CategoriaCurso.Add(categoriaCurso);
+                        bd.SaveChanges();
+                        respuesta = 1;
+                    } else
+                    {
+                        CategoriaCurso categoriaCurso = bd.CategoriaCurso.Where(t => t.IIDCATEGORIACURSO == obj.IdCategoriaCurso).First();
+                        categoriaCurso.NOMBRE = obj.Nombre;
+                        bd.SaveChanges();
+                        respuesta = 1;
+                    }
                 }
             }
             catch (Exception ex)
