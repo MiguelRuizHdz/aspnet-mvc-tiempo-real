@@ -94,6 +94,10 @@ function setS(id, valor) {
     document.getElementById(id).src = valor;
 }
 
+function pintarCombo(url, propiedadId, propiedadMostrar, idCombo) {
+
+}
+
 function pintar(url, id = "divTabla", cabeceras, nombrePropiedades, idTabla = "tabla", eliminar = false, editar = false, propiedadId="Id") {
     fetch(url).then(res => res.json())
         .then(res => {

@@ -178,6 +178,8 @@
     <Content Include="Scripts\jquery-3.6.4.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.4.min.map" />
     <Content Include="Views\Curso\Index.cshtml" />
+    <Content Include="Views\Curso\Agregar.cshtml" />
+    <Content Include="Views\Curso\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -3,7 +3,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Listado Cursos</h2>
+<h2>Listado Cursos <span id="spnEstado"></span></h2>
+
+@Html.ActionLink("Nuevo", "Agregar", "Curso", new { area = "" }, new { @class = "btn btn-success" })
 
 <div id="divTabla">
 

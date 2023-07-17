@@ -16,6 +16,16 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             return View();
         }
 
+        public ActionResult Agregar()
+        {
+            return View();
+        }
+
+        public ActionResult Editar()
+        {
+            return View();
+        }
+
         public JsonResult listarCursos()
         {
             List<CursoCLS> lista= new List<CursoCLS>();
