@@ -100,11 +100,13 @@
     <Content Include="Content\datatable.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\agregarcurso.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\categoriacurso.js" />
     <Content Include="js\chart.js" />
     <Content Include="js\curso.js" />
     <Content Include="js\datatable.js" />
+    <Content Include="js\editarcurso.js" />
     <Content Include="js\generic.js" />
     <Content Include="js\sweetAlert.js" />
     <Content Include="Models\BDCurso.Context.tt">

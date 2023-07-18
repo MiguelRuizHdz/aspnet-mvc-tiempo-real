@@ -95,7 +95,16 @@ function setS(id, valor) {
 }
 
 function pintarCombo(url, propiedadId, propiedadMostrar, idCombo) {
-
+    fetch(url).then(res => res.json())
+        .then(res => {
+            var contenido = "<option value=''>--Seleccione--</option>"
+            var fila
+            for (let i = 0; i < res.length; i++) {
+                fila = res[i]
+                contenido += "<option value='"+ fila[propiedadId]+"'>"+fila[propiedadMostrar]+"</option>";
+            }
+            document.getElementById(idCombo).innerHTML = contenido;
+        })
 }
 
 function pintar(url, id = "divTabla", cabeceras, nombrePropiedades, idTabla = "tabla", eliminar = false, editar = false, propiedadId="Id") {

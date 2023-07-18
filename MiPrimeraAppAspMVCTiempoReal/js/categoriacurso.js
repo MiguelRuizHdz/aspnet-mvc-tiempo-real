@@ -1,5 +1,5 @@
-﻿// var socket = new WebSocket("ws://161.218.118.51:9001");
-var socket = new WebSocket("ws://10.0.0.10:9001");
+﻿var socket = new WebSocket("ws://172.30.0.1:9001");
+// var socket = new WebSocket("ws://10.0.0.10:9001");
 
 socket.onopen = function () {
     document.getElementById("spnEstado").innerHTML = "- OK";
