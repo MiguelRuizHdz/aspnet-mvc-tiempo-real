@@ -29,7 +29,7 @@ function fetchGetText(url, callback, mensaje="Se eliminó correctamente el regis
     })
 }
 
-function fecthPost(url, objeto, callback) {
+function fetchPost(url, objeto, callback) {
     Confirmacion(undefined, function () {
         fetch(url, {
             headers: {

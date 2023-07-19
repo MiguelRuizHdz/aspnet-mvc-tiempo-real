@@ -5,7 +5,6 @@
 
 <h2>Agregar Curso <span id="spnEstado"></span></h2>
 
-
 <div>
     <div class="mb-3">
         <label for="txtIdCodigo" class="form-label">Código</label>
@@ -13,7 +12,7 @@
     </div>
     <div class="mb-3">
         <label for="txtNombreCurso" class="form-label">Nombre</label>
-        <input class="form-control" type="text" id="txtNombreCurso" placeholder="Nombre">
+        <input class="form-control" type="text" id="txtNombreCurso" placeholder="Nombre Curso">
     </div>
     <div class="mb-3">
         <label for="txtDescripcion" class="form-label">Descripción</label>
@@ -24,8 +23,26 @@
         <select id="cboCategoriaCurso" class="form-select" aria-label="Seleccione Categoria Curso">
         </select>
     </div>
+    <div class="mb-3">
+        <label for="txtPrecio" class="form-label">Precio</label>
+        <input class="form-control" type="text" id="txtPrecio" placeholder="Precio">
+    </div>
+    <div class="mb-3">
+        <label for="txtCupon" class="form-label">Cupón</label>
+        <input class="form-control" type="text" id="txtCupon" placeholder="Cupón">
+    </div>
+    <div class="mb-3">
+        <label for="fupFoto" class="form-label">Imagen</label>
+        <img src="" width="300" height="300" id="imgFoto">
+        <input class="form-control" type="file" id="fupFoto" placeholder="Imagen" onchange="preview()">
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-success" onclick="GuardarDatos()">Guardar</button>
+        @Html.ActionLink("Regresar", "Index", "Curso", new { area = "" }, new { @class = "btn btn-success" })
+    </div>
+
 </div>
 
 <script src="~/js/generic.js"></script>
-<script src="~/js/categoriacurso.js"></script>
 <script src="~/js/agregarcurso.js"></script>

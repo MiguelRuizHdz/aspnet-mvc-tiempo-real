@@ -44,5 +44,43 @@ namespace MiPrimeraAppAspMVCTiempoReal.Controllers
             }
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
+        public int guardarDatos(CursoCLS cursoCLS)
+        {
+            int respuesta = 0;
+
+            try
+            {
+                using (BDCursoEntities bd = new BDCursoEntities())
+                {
+                    if (cursoCLS.IdCurso == 0)
+                    {
+                        Curso curso = new Curso();
+                        curso.NOMBRE = cursoCLS.NombreCurso;
+                        curso.DESCRIPCION = cursoCLS.Descripcion;
+                        curso.IIDCATEGORIACURSO = cursoCLS.IdCategoriaCurso;
+                        curso.PRECIO = cursoCLS.Precio;
+                        curso.CUPON = cursoCLS.Cupon;
+                        curso.IMAGEN = cursoCLS.Foto;
+                        curso.BHABILITADO = 1;
+                        bd.Curso.Add(curso);
+                        bd.SaveChanges();
+                        respuesta = 1;
+                    }
+                    else
+                    {
+                        Curso curso = bd.Curso.Where(t => t.IIDCATEGORIACURSO == cursoCLS.IdCategoriaCurso).First();
+                        curso.NOMBRE = cursoCLS.NombreCurso;
+                        bd.SaveChanges();
+                        respuesta = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = 0;
+            }
+
+            return respuesta;
+        }
     }
 }
